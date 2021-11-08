@@ -1,0 +1,28 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>com.coolxiaoyao.mybatis</id>
+    <name>Mybatis Format Log</name>
+    <vendor email="syusukezhangyong@gmail.com">syusuke</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="com.coolxiaoyao.mybatis.services.MyApplicationService"/>
+        <projectService serviceImplementation="com.coolxiaoyao.mybatis.services.MyProjectService"/>
+    </extensions>
+
+    <applicationListeners>
+        <listener class="com.coolxiaoyao.mybatis.listeners.MyProjectManagerListener"
+                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+    </applicationListeners>
+
+    <actions>
+        <action id="com.coolxiaoyao.mybatis.FormatLogAction" class="com.coolxiaoyao.mybatis.FormatLogAction"
+                text="FormatLogAction"
+                description="FormatLogAction">
+            <keyboard-shortcut keymap="$default" first-keystroke="control alt shift M" remove="true"/>
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
