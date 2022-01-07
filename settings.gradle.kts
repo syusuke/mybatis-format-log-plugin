@@ -1,2 +1,2 @@
-rootProject.name = "mybatis-format-log"
+rootProject.name = "mybatis-format-log-plugin"
 
